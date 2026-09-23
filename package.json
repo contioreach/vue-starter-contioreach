@@ -1,0 +1,51 @@
+{
+  "name": "vue-starter-contioreach",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "description": "A production-ready Vue 3 (Vite) blog powered by the ContioReach headless CMS — a client-side SPA with a small API server that keeps the CMS key server-side and handles caching, tag invalidation and publish webhooks.",
+  "license": "MIT",
+  "homepage": "https://github.com/contioreach/vue-starter-contioreach#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/contioreach/vue-starter-contioreach.git"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "vite",
+    "spa",
+    "vue-router",
+    "headless-cms",
+    "blog",
+    "contioreach",
+    "example",
+    "starter",
+    "tailwindcss",
+    "seo"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c cyan,green \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:client": "vite",
+    "dev:server": "node --watch --env-file=.env server/index.js",
+    "build": "vite build",
+    "start": "node --env-file=.env server/index.js",
+    "preview": "npm run build && npm start",
+    "test": "node --test \"server/**/*.test.js\""
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "vue": "^3.5.43",
+    "vue-router": "^5.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-vue": "^6.0.9",
+    "concurrently": "^10.0.5",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.0"
+  },
+  "engines": {
+    "node": ">=20.6.0"
+  }
+}
