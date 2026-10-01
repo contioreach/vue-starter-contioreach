@@ -32,7 +32,7 @@ const author = computed(() => props.post.author);
       <img
         v-if="post.coverImage"
         :src="post.coverImage"
-        :alt="post.title"
+        :alt="post.coverImageAlt || post.title"
         :loading="priority ? 'eager' : 'lazy'"
         :fetchpriority="priority ? 'high' : 'auto'"
         decoding="async"

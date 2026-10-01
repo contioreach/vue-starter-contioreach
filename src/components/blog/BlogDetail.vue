@@ -94,7 +94,7 @@ const url = computed(() => `${site.siteUrl}/blog/${props.post.slug}`);
       <div class="relative aspect-[16/8] overflow-hidden rounded-3xl border border-white/10 sm:-mt-10">
         <img
           :src="post.coverImage"
-          :alt="post.title"
+          :alt="post.coverImageAlt || post.title"
           fetchpriority="high"
           decoding="async"
           class="absolute inset-0 h-full w-full object-cover"

@@ -104,7 +104,7 @@ function blogPosting(post, siteUrl) {
     })),
     publisher: { "@type": "Organization", name: "ContioReach", url: siteUrl },
     keywords:
-      [post.primaryKeyword, ...(post.tags?.map((tag) => tag.name) || [])]
+      [post.primaryKeyword, ...(post.secondaryKeywords || []), ...(post.tags?.map((tag) => tag.name) || [])]
         .filter(Boolean)
         .join(", ") || undefined,
   };
@@ -187,11 +187,11 @@ export async function headFor(pathname) {
     }
 
     return tags({
-      title: `${post.title} | ContioReach`,
+      title: post.metaTitle !== post.title ? post.metaTitle : `${post.title} | ContioReach`,
       description: post.description || post.excerpt,
       path: `/blog/${post.slug}`,
       image: post.coverImage || undefined,
-      alt: post.title,
+      alt: post.coverImageAlt,
       type: "article",
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
